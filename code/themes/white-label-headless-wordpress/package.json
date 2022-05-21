@@ -1,0 +1,22 @@
+{
+	"name": "@mqs/white-label-headless-wordpress",
+	"description": "White Label Headless WordPress Theme.",
+	"version": "0.0.1",
+	"keywords": [
+		"white label",
+		"wordpress",
+		"headless",
+		"cms"
+	],
+	"license": "SEE LICENSE",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mqschwanda/nextjs-headless-wordpress.git"
+	},
+	"author": {
+		"name": "Mark Q Schwanda",
+		"email": "mqschwanda@gmail.com",
+		"url": "https://github.com/mqschwanda"
+	},
+	"private": true
+}

@@ -1,0 +1,7 @@
+version: '3.9'
+
+services:  
+
+  hello_world:
+    image: ubuntu
+    command: [/bin/echo, 'Hello world']

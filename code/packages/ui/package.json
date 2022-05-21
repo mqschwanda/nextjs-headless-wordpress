@@ -1,0 +1,24 @@
+{
+	"name": "@mqs/ui",
+	"description": "User Interface for Next JS Headless WordPress",
+	"version": "0.0.1",
+	"keywords": [
+		"white label",
+		"wordpress",
+		"headless",
+		"ui",
+		"user interface",
+		"cms"
+	],
+	"license": "SEE LICENSE",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mqschwanda/nextjs-headless-wordpress.git"
+	},
+	"author": {
+		"name": "Mark Q Schwanda",
+		"email": "mqschwanda@gmail.com",
+		"url": "https://github.com/mqschwanda"
+	},
+	"private": true
+}

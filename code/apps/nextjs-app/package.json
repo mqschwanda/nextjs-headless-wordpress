@@ -1,0 +1,23 @@
+{
+	"name": "@mqs/nextjs-app",
+	"description": "Next JS app powered by WordPress CMS.",
+	"version": "0.0.1",
+	"keywords": [
+		"next",
+		"nextjs",
+		"wordpress",
+		"headless",
+		"cms"
+	],
+	"license": "SEE LICENSE",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mqschwanda/nextjs-headless-wordpress.git"
+	},
+	"author": {
+		"name": "Mark Q Schwanda",
+		"email": "mqschwanda@gmail.com",
+		"url": "https://github.com/mqschwanda"
+	},
+	"private": true
+}
