@@ -1,0 +1,27 @@
+
+  
+{
+	"version": 2,
+	"customTemplates": [],
+	"settings": {
+		"appearanceTools": true,
+		"color": {},
+		"custom": {},
+		"spacing": {},
+		"typography": {},
+		"layout": {}
+	},
+	"styles": {},
+	"templateParts": [
+		{
+			"name": "header",
+			"title": "Header",
+			"area": "header"
+		},
+		{
+			"name": "footer",
+			"title": "Footer",
+			"area": "footer"
+		}
+	]
+}
