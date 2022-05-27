@@ -1,6 +1,9 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 # and https://github.com/github/gitignore for examples
 
+# env
+.env
+
 # dependencies
 node_modules
 yarn.lock
