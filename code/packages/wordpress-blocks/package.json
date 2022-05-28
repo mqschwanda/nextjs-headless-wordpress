@@ -1,6 +1,6 @@
 {
-	"name": "@mqs/white-label-headless-wordpress",
-	"description": "White Label Headless WordPress Theme.",
+	"name": "@mqs/wordpress-blocks",
+	"description": "WordPress Block components.",
 	"version": "0.0.1",
 	"keywords": [
 		"white label",
@@ -24,7 +24,10 @@
 		"start": "wp-scripts start"
 	},
 	"dependencies": {
-		"@mqs/wordpress-blocks": "^0.0.1"
+		"@mqs/wordpress-blocks": "^0.0.1",
+		"@wordpress/block-editor": "^9.1.0",
+		"@wordpress/blocks": "^11.8.0",
+		"@wordpress/i18n": "^4.9.0"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^23.1.0"

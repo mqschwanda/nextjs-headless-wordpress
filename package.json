@@ -21,12 +21,15 @@
 		"url": "https://github.com/mqschwanda"
 	},
 	"private": true,
-	"workspaces": [
-		"code/apps/*",
-		"code/packages/*",
-		"code/plugins/*",
-		"code/themes/*"
-	],
+	"workspaces": {
+			"packages": [
+			"code/apps/*",
+			"code/packages/*",
+			"code/plugins/*",
+			"code/themes/*"
+		],
+		"nohoist": []
+	},
 	"scripts": {
 		"lint": "echo \"TODO: ADD SCRIPT\"",
 		"start": "docker compose -f code/docker/docker-compose.yml up",

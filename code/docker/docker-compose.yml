@@ -9,6 +9,7 @@ services:
       - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
       - ./wordpress/app:/var/www/html # Full wordpress project
       - ../themes/white-label-headless-wordpress/:/var/www/html/wp-content/themes/white-label-headless-wordpress # Theme development
+      - ../packages/wordpress-blocks/:/var/www/html/wp-content/themes/white-label-headless-wordpress/node_modules/@mqs/wordpress-blocks # Theme development
       #- ../plugins/plugin-name/:/var/www/html/wp-content/plugins/plugin-name # Plugin development
       #- ../themes/theme-name/:/var/www/html/wp-content/themes/theme-name # Theme development
     environment:

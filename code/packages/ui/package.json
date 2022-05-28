@@ -20,5 +20,62 @@
 		"email": "mqschwanda@gmail.com",
 		"url": "https://github.com/mqschwanda"
 	},
-	"private": true
+	"source": "src/index.ts",
+  "main": "dist/index.js",
+	"scripts": {
+    "build": "rimraf --no-glob ./dist && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,es --no-compress",
+    "build-react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
+    "dev": "microbundle watch --tsconfig ./tsconfig.build.json",
+    "clean": "rimraf --no-glob ./dist ./tsconfig.tsbuildinfo ./node_modules/.cache",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --cache --cache-location ../../.cache/eslint/ui-lib.eslintcache",
+    "typecheck": "tsc --project ./tsconfig.json --noEmit",
+    "test": "run-s test-unit",
+    "test-unit": "echo \"No unit tests yet\"",
+    "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook --output-dir build/storybook"
+  },
+	"private": true,
+	"dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2"
+  },
+  "peerDependencies": {
+    "@types/react": "^17.0.44 || ^18.0.0",
+    "@types/react-dom": "^17.0.44 || ^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "@types/react-dom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "7.18.2",
+    "@emotion/babel-preset-css-prop": "11.2.0",
+    "@mdx-js/react": "1.6.22",
+    "@types/jest": "27.5.1",
+    "@types/node": "17.0.34",
+    "@types/react": "18.0.9",
+    "@types/react-dom": "18.0.5",
+    "autoprefixer": "10.4.7",
+    "babel-loader": "8.2.5",
+    "babel-plugin-macros": "3.1.0",
+    "babel-plugin-polyfill-corejs3": "0.5.2",
+    "core-js": "3.22.7",
+    "cross-env": "7.0.3",
+    "microbundle": "0.15.0",
+    "npm-run-all": "4.1.5",
+    "postcss": "8.4.14",
+    "postcss-flexbugs-fixes": "5.0.2",
+    "rimraf": "3.0.2",
+    "rooks": "5.11.2",
+    "tsconfig-paths-webpack-plugin": "3.5.2",
+    "typescript": "4.7.2",
+    "webpack": "5.72.1"
+  }
 }
