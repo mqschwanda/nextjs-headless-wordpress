@@ -21,6 +21,7 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 import './editor.scss';
 
+import { EditProvider } from '../../providers/EditProvider';
 import { Hello } from '@mqs/ui';
 
 /**
@@ -32,9 +33,13 @@ import { Hello } from '@mqs/ui';
  * @return {WPElement} Element to render.
  */
 export default function Edit() {
+	const props = useBlockProps()
+	
 	return (
-		<Hello {...useBlockProps()}>
-			{__('Hello – hello from the editor!', 'text_domain_to_modify')}
-		</Hello>
+		<EditProvider>
+			<Hello {...props}>
+				{__('Hello – hello from the editor!', 'text_domain_to_modify')}
+			</Hello>
+		</EditProvider>
 	);
 }

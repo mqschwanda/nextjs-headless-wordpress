@@ -22,10 +22,10 @@ function mqs_after_setup_theme() {
 	 * 
 	 * TODO: To prevent foot guns, make sure CI is added to validate block directory.
 	 */
-	$block_build_directory = __DIR__ . '/node_modules/@mqs/wordpress-blocks/build';
+	$block_build_directory = __DIR__ . '/node_modules/@mqs/wordpress-blocks/build/blocks';
 	$block_names = array_diff(scandir($block_build_directory), array('.', '..'));
 
-	foreach ( $block_names as $key => $block_name ) {
+	foreach ($block_names as $key => $block_name) {
 		// path to the folder where the block.json file is located
 		$block_type = "$block_build_directory/$block_name";
 		/**

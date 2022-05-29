@@ -13,7 +13,9 @@ import { __ } from '@wordpress/i18n';
  */
 import { useBlockProps } from '@wordpress/block-editor';
 
+import { SaveProvider } from '../../providers/SaveProvider';
 import { Hello } from '@mqs/ui';
+import { useMemo } from 'react';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -24,10 +26,15 @@ import { Hello } from '@mqs/ui';
  *
  * @return {WPElement} Element to render.
  */
-export default function save() {
+export default function Save() {
+	const { save } = useBlockProps()
+	const props = useMemo(() => save(), [save])
+
 	return (
-		<Hello {...useBlockProps.save()}>
-			{__('Hello – hello from the saved content!', 'text_domain_to_modify')}
-		</Hello>
+		<SaveProvider>
+			<Hello {...props}>
+				{__('Hello – hello from the saved content!', 'text_domain_to_modify')}
+			</Hello>
+		</SaveProvider>
 	);
 }
