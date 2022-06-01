@@ -6,8 +6,8 @@ services:
     ports:
       - ${IP}:80:80 # change ip if required
     volumes:
-      - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
-      - ./wordpress/app:/var/www/html # Full wordpress project
+      - ./volumes/config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
+      - ./volumes/wordpress:/var/www/html # Full wordpress project
       - ../themes/white-label-headless-wordpress/:/var/www/html/wp-content/themes/white-label-headless-wordpress # Theme development
       - ../packages/wordpress-blocks/:/var/www/html/wp-content/themes/white-label-headless-wordpress/node_modules/@mqs/wordpress-blocks # Theme development
       #- ../plugins/plugin-name/:/var/www/html/wp-content/plugins/plugin-name # Plugin development
@@ -25,8 +25,8 @@ services:
   wordpress_cli:
     image: wordpress:cli
     volumes:
-      - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
-      - ./wordpress/app:/var/www/html
+      - ./volumes/config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
+      - ./volumes/wordpress:/var/www/html
     environment:
       WORDPRESS_DB_HOST: mysql
       WORDPRESS_DB_NAME: "${DB_NAME}"
@@ -58,7 +58,7 @@ services:
         '--collation-server=utf8mb4_unicode_ci'
     ]
     volumes:
-      - ./wordpress/data:/docker-entrypoint-initdb.d
+      - ./volumes/data:/docker-entrypoint-initdb.d
       - db_data:/var/lib/mysql
     environment:
       MYSQL_DATABASE: "${DB_NAME}"
