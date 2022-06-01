@@ -5,4 +5,4 @@
  */
 
 // This enables debugging.
-define( 'WP_DEBUG', true );
+define('WP_DEBUG', true);
