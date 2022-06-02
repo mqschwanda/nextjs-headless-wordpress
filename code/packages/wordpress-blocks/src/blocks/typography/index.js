@@ -25,7 +25,7 @@ import Save from './save';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType( 'mqs/hello', {
+registerBlockType( 'mqs/typography', {
 	/**
 	 * @see ./edit.js
 	 */

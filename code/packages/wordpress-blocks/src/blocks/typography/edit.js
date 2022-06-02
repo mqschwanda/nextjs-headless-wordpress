@@ -1,17 +1,10 @@
 /**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
- */
-import { __ } from '@wordpress/i18n';
-
-/**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { RichText, useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -22,27 +15,45 @@ import { useBlockProps } from '@wordpress/block-editor';
 import './editor.scss';
 
 import { EditProvider } from '../../providers/EditProvider';
-import { Hello } from '@mqs/ui';
+import { Typography } from '@mqs/ui';
 
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
  *
+ * @param  root0
+ * @param  root0.attributes
+ * @param  root0.setAttributes
+ * @param  root0.mergeBlocks
+ * @param  root0.onReplace
+ * @param  root0.onRemove
  * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
-	const props = useBlockProps();
+export default function Edit( {
+	attributes,
+	setAttributes,
+	mergeBlocks,
+	onReplace,
+	onRemove,
+} ) {
+	const blockProps = useBlockProps();
 
 	return (
 		<EditProvider>
-			<Hello { ...props }>
-				{ __(
-					'Hello – hello from the editor!',
-					'text_domain_to_modify'
-				) }
-			</Hello>
+			<Typography { ...blockProps }>
+				<RichText
+					identifier="children"
+					tagName="span"
+					value={ attributes.children }
+					onChange={ ( children ) => setAttributes( { children } ) }
+					data-empty={ attributes.children ? false : true }
+					onMerge={ mergeBlocks }
+					onReplace={ onReplace }
+					onRemove={ onRemove }
+				/>
+			</Typography>
 		</EditProvider>
 	);
 }

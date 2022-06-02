@@ -21,13 +21,16 @@
 	"private": true,
 	"scripts": {
 		"build": "wp-scripts build",
-		"start": "wp-scripts start"
+		"start": "wp-scripts start",
+		"lint": "wp-scripts lint-js"
 	},
 	"dependencies": {
-		"@mqs/wordpress-blocks": "^0.0.1",
+		"@mqs/ui": "^0.0.1",
 		"@wordpress/block-editor": "^9.1.0",
 		"@wordpress/blocks": "^11.8.0",
-		"@wordpress/i18n": "^4.9.0"
+		"@wordpress/components": "^19.12.0",
+		"@wordpress/i18n": "^4.9.0",
+		"@wordpress/icons": "^9.1.0"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^23.1.0"

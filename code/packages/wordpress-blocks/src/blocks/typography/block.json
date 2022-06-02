@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "mqs/typography",
+	"version": "0.0.1",
+	"title": "Typography",
+	"category": "text",
+	"icon": "text",
+	"description": "Use typography to present your design and content as clearly and efficiently as possible.",
+	"attributes": {
+		"children": {
+			"type": "string",
+			"source":"html",
+			"default": "typography..."
+		}
+	},
+	"textdomain": "text_domain_to_modify",
+	"editorScript": "file:./index.js"
+}

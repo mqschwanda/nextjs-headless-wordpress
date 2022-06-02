@@ -1,28 +1,28 @@
 {
-	"name": "@mqs/ui",
-	"description": "User Interface for Next JS Headless WordPress",
-	"version": "0.0.1",
-	"keywords": [
-		"white label",
-		"wordpress",
-		"headless",
-		"ui",
-		"user interface",
-		"cms"
-	],
-	"license": "SEE LICENSE",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/mqschwanda/nextjs-headless-wordpress.git"
-	},
-	"author": {
-		"name": "Mark Q Schwanda",
-		"email": "mqschwanda@gmail.com",
-		"url": "https://github.com/mqschwanda"
-	},
-	"source": "src/index.ts",
+  "name": "@mqs/ui",
+  "description": "User Interface for Next JS Headless WordPress",
+  "version": "0.0.1",
+  "keywords": [
+    "white label",
+    "wordpress",
+    "headless",
+    "ui",
+    "user interface",
+    "cms"
+  ],
+  "license": "SEE LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mqschwanda/nextjs-headless-wordpress.git"
+  },
+  "author": {
+    "name": "Mark Q Schwanda",
+    "email": "mqschwanda@gmail.com",
+    "url": "https://github.com/mqschwanda"
+  },
+  "source": "src/index.ts",
   "main": "dist/index.js",
-	"scripts": {
+  "scripts": {
     "build": "rimraf --no-glob ./dist && cross-env NODE_ENV=production microbundle --tsconfig ./tsconfig.build.json --jsx React.createElement --jsxFragment React.Fragment -f cjs,es --no-compress",
     "build-react17jsx": "microbundle --tsconfig ./tsconfig.build.json --jsx jsx --jsxImportSource react --globals react/jsx-runtime=jsx --compress",
     "dev": "microbundle watch --tsconfig ./tsconfig.build.json",
@@ -35,10 +35,11 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook --output-dir build/storybook"
   },
-	"private": true,
-	"dependencies": {
+  "private": true,
+  "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.8.2",
     "react": ">=17.0.2",
     "react-dom": ">=17.0.2"
   },
