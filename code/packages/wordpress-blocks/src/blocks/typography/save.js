@@ -14,19 +14,37 @@ import { Typography } from '@mqs/ui';
  * be combined into the final markup, which is then serialized by the block
  * editor into `post_content`.
  *
- * @param  root0
- * @param  root0.attributes
+ * @param {Object} props
+ * @param {Object} props.attributes Data stored by a block.
  * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
  *
  * @return {WPElement} Element to render.
  */
 export default function Save( { attributes } ) {
-	const props = useBlockProps.save();
+	const {
+		align,
+		gutterBottom,
+		noWrap,
+		paragraph,
+		variant,
+		children,
+	} = attributes;
+	const blockProps = useBlockProps.save();
 
 	return (
 		<SaveProvider>
-			<Typography { ...props }>
-				<RichText.Content value={ attributes?.children } />
+			<Typography
+				align={ align }
+				gutterBottom={ gutterBottom }
+				noWrap={ noWrap }
+				paragraph={ paragraph }
+				variant={ variant }
+			>
+				<RichText.Content
+					{ ...blockProps }
+					tagName="span"
+					value={ children }
+				/>
 			</Typography>
 		</SaveProvider>
 	);

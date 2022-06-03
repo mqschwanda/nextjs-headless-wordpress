@@ -8,10 +8,53 @@
 	"icon": "text",
 	"description": "Use typography to present your design and content as clearly and efficiently as possible.",
 	"attributes": {
+		"align": {
+			"type": "string",
+			"enum": [
+				"center",
+				"inherit",
+				"justify",
+				"left",
+				"right"
+			],
+			"default": "inherit"
+		},
 		"children": {
 			"type": "string",
 			"source":"html",
-			"default": "typography..."
+			"default": "edit typography content..."
+		},
+		"gutterBottom": {
+			"type": "boolean",
+			"default": false
+		},
+		"noWrap": {
+			"type": "boolean",
+			"default": false
+		},
+		"paragraph": {
+			"type": "boolean",
+			"default": false
+		},
+		"variant": {
+			"type": "string",
+			"enum": [
+				"body1",
+				"body2",
+				"button",
+				"caption",
+				"h1",
+				"h2",
+				"h3",
+				"h4",
+				"h5",
+				"h6",
+				"inherit",
+				"overline",
+				"subtitle1",
+				"subtitle2"
+			],
+			"default": "body1"
 		}
 	},
 	"textdomain": "text_domain_to_modify",
