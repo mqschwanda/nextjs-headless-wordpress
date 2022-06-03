@@ -1,29 +1,29 @@
 {
 	"name": "@mqs/wordpress-blocks",
-	"description": "WordPress Block components.",
 	"version": "0.0.1",
+	"description": "WordPress Block components.",
+	"author": {
+		"name": "Mark Q Schwanda",
+		"email": "mqschwanda@gmail.com",
+		"url": "https://github.com/mqschwanda"
+	},
+	"license": "SEE LICENSE",
 	"keywords": [
 		"white label",
 		"wordpress",
 		"headless",
 		"cms"
 	],
-	"license": "SEE LICENSE",
+	"homepage": "https://github.com/mqschwanda/nextjs-headless-wordpress",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/mqschwanda/nextjs-headless-wordpress.git"
 	},
-	"author": {
-		"name": "Mark Q Schwanda",
+	"bugs": {
 		"email": "mqschwanda@gmail.com",
-		"url": "https://github.com/mqschwanda"
+		"url": "https://github.com/mqschwanda/nextjs-headless-wordpress/issues"
 	},
 	"private": true,
-	"scripts": {
-		"build": "wp-scripts build",
-		"start": "wp-scripts start",
-		"lint": "wp-scripts lint-js"
-	},
 	"dependencies": {
 		"@mqs/ui": "^0.0.1",
 		"@wordpress/block-editor": "^9.1.0",
@@ -34,5 +34,10 @@
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^23.1.0"
+	},
+	"scripts": {
+		"build": "wp-scripts build",
+		"start": "wp-scripts start",
+		"lint": "wp-scripts lint-style; wp-scripts lint-js --fix; wp-scripts lint-md-docs; wp-scripts lint-pkg-json;"
 	}
 }
