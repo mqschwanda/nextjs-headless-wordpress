@@ -4,7 +4,7 @@
 	"name": "mqs/typography",
 	"version": "0.0.1",
 	"title": "Typography",
-	"category": "text",
+	"category": "material",
 	"icon": "text",
 	"description": "Use typography to present your design and content as clearly and efficiently as possible.",
 	"attributes": {

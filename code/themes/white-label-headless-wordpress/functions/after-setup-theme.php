@@ -15,6 +15,21 @@ function mqs_after_setup_theme() {
 	// Add support for block styles.
 	add_theme_support('wp-block-styles');
 
+	function filter_block_categories_all($block_categories, $editor_context) {
+		array_push(
+			$block_categories,
+			array(
+				'slug'  => 'material',
+				'title' => __('Material', 'text_domain_to_modify'),
+				'icon'  => null,
+			)
+		);
+	
+		return $block_categories;
+	}
+	
+	add_filter('block_categories_all', 'filter_block_categories_all', 10, 2);
+
 	/*
 	 * Register all blocks
 	 * 
