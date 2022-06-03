@@ -1,0 +1,85 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "mqs/button",
+	"version": "0.0.1",
+	"title": "Button",
+	"category": "design",
+	"icon": "button",
+	"description": "Buttons allow users to take actions, and make choices, with a single tap.",
+	"attributes": {
+		"children": {
+			"type": "string",
+			"source":"html",
+			"default": "edit button content..."
+		},
+		"color": {
+			"type": "string",
+			"enum": [
+				"inherit",
+				"primary",
+				"secondary",
+				"success",
+				"error",
+				"info",
+				"warning"
+			],
+			"default": "inherit"
+		},
+		"disabled": {
+			"type": "boolean",
+			"default": false
+		},
+		"disableElevation": {
+			"type": "boolean",
+			"default": false
+		},
+		"disableFocusRipple": {
+			"type": "boolean",
+			"default": false
+		},
+		"disableRipple": {
+			"type": "boolean",
+			"default": false
+		},
+		"fullWidth": {
+			"type": "boolean",
+			"default": false
+		},
+		"href": {
+			"type": "string",
+			"source":"text",
+			"default": ""
+		},
+		"startIcon": {
+			"type": "string",
+			"source":"text",
+			"default": ""
+		},
+		"endIcon": {
+			"type": "string",
+			"source":"text",
+			"default": ""
+		},
+		"size": {
+			"type": "string",
+			"enum": [
+				"small",
+				"medium",
+				"large"
+			],
+			"default": "medium"
+		},
+		"variant": {
+			"type": "string",
+			"enum": [
+				"contained",
+				"outlined",
+				"text"
+			],
+			"default": "text"
+		}
+	},
+	"textdomain": "text_domain_to_modify",
+	"editorScript": "file:./index.js"
+}

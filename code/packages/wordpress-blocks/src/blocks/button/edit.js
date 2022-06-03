@@ -18,7 +18,7 @@ import {
 } from '@wordpress/block-editor';
 
 import { EditProvider } from '../../providers/EditProvider';
-import { Typography } from '@mqs/ui';
+import { Button } from '@mqs/ui';
 import {
 	ExternalLink,
 	PanelBody,
@@ -27,6 +27,7 @@ import {
 	/* eslint-disable @wordpress/no-unsafe-wp-apis */
 	__experimentalText as Text,
 	__experimentalSpacer as Spacer,
+	TextControl,
 	/* eslint-enable @wordpress/no-unsafe-wp-apis */
 } from '@wordpress/components';
 import block from './block.json';
@@ -55,12 +56,18 @@ export default function Edit( {
 	isSelected, // eslint-disable-line no-unused-vars
 } ) {
 	const {
-		align,
-		gutterBottom,
-		noWrap,
-		paragraph,
-		variant,
 		children,
+		color,
+		disabled,
+		disableElevation,
+		disableFocusRipple,
+		disableRipple,
+		endIcon,
+		fullWidth,
+		href,
+		size,
+		startIcon,
+		variant,
 	} = attributes;
 	const blockProps = useBlockProps();
 
@@ -77,64 +84,127 @@ export default function Edit( {
 								'To learn more about what each attribute does, view the Material UI',
 								'text_domain_to_modify'
 							) }{ ' ' }
-							<ExternalLink href="https://mui.com/material-ui/api/typography/">
+							<ExternalLink href="https://mui.com/material-ui/api/button/">
 								{ __(
-									'Typography API documentation',
+									'Button API documentation',
 									'text_domain_to_modify'
 								) }
 							</ExternalLink>
 							.
 						</Text>
 					</Spacer>
+
 					<SelectControl
-						label={ __( 'Align', 'text_domain_to_modify' ) }
+						label={ __( 'Color', 'text_domain_to_modify' ) }
 						help={ __(
-							'Set the text-align on the component.',
+							'The color of the component. It supports both default and custom theme colors.',
 							'text_domain_to_modify'
 						) }
-						value={ align }
+						value={ color }
 						onChange={ ( value ) =>
-							setAttributes( { align: value } )
+							setAttributes( { color: value } )
 						}
-						options={ block.attributes.align.enum.map(
+						options={ block.attributes.color.enum.map(
 							( value ) => ( { label: value, value } )
 						) }
 					/>
 					<ToggleControl
-						label={ __( 'Gutter Bottom', 'text_domain_to_modify' ) }
+						label={ __( 'Disabled', 'text_domain_to_modify' ) }
 						help={ __(
-							'If true, the text will have a bottom margin.',
+							'If true, the component is disabled.',
 							'text_domain_to_modify'
 						) }
-						checked={ gutterBottom }
+						checked={ disabled }
 						onChange={ () =>
-							setAttributes( { gutterBottom: ! gutterBottom } )
+							setAttributes( { disabled: ! disabled } )
 						}
 					/>
 					<ToggleControl
-						label={ __( 'No Wrap', 'text_domain_to_modify' ) }
-						help={ __(
-							'If true, the text will not wrap, but instead will truncate with a text overflow ellipsis. Note that text overflow can only happen with block or inline-block level elements (the element needs to have a width in order to overflow).',
+						label={ __(
+							'Disable Elevation',
 							'text_domain_to_modify'
 						) }
-						checked={ noWrap }
-						onChange={ () => setAttributes( { noWrap: ! noWrap } ) }
+						help={ __(
+							'If true, no elevation is used.',
+							'text_domain_to_modify'
+						) }
+						checked={ disableElevation }
+						onChange={ () =>
+							setAttributes( {
+								disableElevation: ! disableElevation,
+							} )
+						}
 					/>
 					<ToggleControl
-						label={ __( 'Paragraph', 'text_domain_to_modify' ) }
-						help={ __(
-							'If true, the element will be a paragraph element.',
+						label={ __(
+							'Disable Focus Ripple',
 							'text_domain_to_modify'
 						) }
-						checked={ paragraph }
+						help={ __(
+							'If true, the keyboard focus ripple is disabled.',
+							'text_domain_to_modify'
+						) }
+						checked={ disableFocusRipple }
 						onChange={ () =>
-							setAttributes( { paragraph: ! paragraph } )
+							setAttributes( {
+								disableFocusRipple: ! disableFocusRipple,
+							} )
 						}
+					/>
+					<ToggleControl
+						label={ __(
+							'Disable Ripple',
+							'text_domain_to_modify'
+						) }
+						help={ __(
+							'If true, the ripple effect is disabled. Without a ripple there is no styling for :focus-visible by default. Be sure to highlight the element by applying separate styles with the .Mui-focusVisible class.',
+							'text_domain_to_modify'
+						) }
+						checked={ disableRipple }
+						onChange={ () =>
+							setAttributes( { disableRipple: ! disableRipple } )
+						}
+					/>
+					<ToggleControl
+						label={ __( 'Full Width', 'text_domain_to_modify' ) }
+						help={ __(
+							'If true, the button will take up the full width of its container.',
+							'text_domain_to_modify'
+						) }
+						checked={ fullWidth }
+						onChange={ () =>
+							setAttributes( { fullWidth: ! fullWidth } )
+						}
+					/>
+					<TextControl
+						label={ __( 'Href', 'text_domain_to_modify' ) }
+						help={ __(
+							'The URL to link to when the button is clicked. If defined, an a element will be used as the root node.',
+							'text_domain_to_modify'
+						) }
+						onChange={ ( value ) =>
+							setAttributes( { href: value } )
+						}
+						value={ href }
+					/>
+					<SelectControl
+						label={ __( 'Size', 'text_domain_to_modify' ) }
+						help={ __(
+							'The size of the component. small is equivalent to the dense button styling.',
+							'text_domain_to_modify'
+						) }
+						value={ size }
+						onChange={ ( value ) =>
+							setAttributes( { size: value } )
+						}
+						options={ block.attributes.size.enum.map(
+							( value ) => ( { label: value, value } )
+						) }
 					/>
 					<SelectControl
 						label={ __( 'Variant', 'text_domain_to_modify' ) }
 						help={ __(
-							'Applies the theme typography styles.',
+							'The variant to use.',
 							'text_domain_to_modify'
 						) }
 						value={ variant }
@@ -147,11 +217,17 @@ export default function Edit( {
 					/>
 				</PanelBody>
 			</InspectorControls>
-			<Typography
-				align={ align }
-				gutterBottom={ gutterBottom }
-				noWrap={ noWrap }
-				paragraph={ paragraph }
+			<Button
+				color={ color }
+				disabled={ disabled }
+				disableElevation={ disableElevation }
+				disableFocusRipple={ disableFocusRipple }
+				disableRipple={ disableRipple }
+				endIcon={ endIcon }
+				fullWidth={ fullWidth }
+				href={ href }
+				size={ size }
+				startIcon={ startIcon }
 				variant={ variant }
 			>
 				<RichText
@@ -167,7 +243,7 @@ export default function Edit( {
 					onReplace={ onReplace }
 					onRemove={ onRemove }
 				/>
-			</Typography>
+			</Button>
 		</EditProvider>
 	);
 }
