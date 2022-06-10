@@ -34,6 +34,8 @@ export default function Save( { attributes } ) {
 	return (
 		<SaveProvider>
 			<Typography
+				// TODO: remove span compnent workaround for error thrown by nested `<p><div/></p>` 
+				component="span"
 				align={ align }
 				gutterBottom={ gutterBottom }
 				noWrap={ noWrap }

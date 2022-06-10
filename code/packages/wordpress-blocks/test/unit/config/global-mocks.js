@@ -5,6 +5,17 @@ jest.mock( '@wordpress/compose', () => {
 	};
 } );
 
+jest.mock( '@wordpress/block-editor', () => {
+	const actual = jest.requireActual( '@wordpress/block-editor' );
+	const useBlockPropsMock = jest.fn();
+	useBlockPropsMock.save = actual.useBlockProps.save;
+
+	return {
+		...actual,
+		useBlockProps: useBlockPropsMock,
+	};
+} );
+
 /**
  * The new gallery block format is not compatible with the use_BalanceTags option
  * so a flag is set in lib/compat.php to allow disabling the new block in this instance.

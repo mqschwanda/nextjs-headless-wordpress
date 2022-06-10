@@ -4,15 +4,15 @@
 import { render } from '@testing-library/react';
 import { getSaveElement } from '@wordpress/blocks';
 import { reduceDefaultBlockAttributes } from '@mqs/wordpress-blocks/utils';
-import block from '@mqs/wordpress-blocks/blocks/button/block';
+import block from '@mqs/wordpress-blocks/blocks/typography/block';
 
 /**
  * Internal dependencies
  */
-import Edit from '@mqs/wordpress-blocks/blocks/button/edit';
-import Save from '@mqs/wordpress-blocks/blocks/button/save';
+import Edit from '@mqs/wordpress-blocks/blocks/typography/edit';
+import Save from '@mqs/wordpress-blocks/blocks/typography/save';
 
-describe( 'Button block', () => {
+describe( 'Typography block', () => {
 	const defaultAttributes = reduceDefaultBlockAttributes( block );
 
 	describe( 'save', () => {
